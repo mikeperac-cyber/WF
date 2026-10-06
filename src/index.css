@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --primary: 238 84% 67%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+    --border: 214 32% 91%;
+    --ring: 238 84% 67%;
+  }
+
+  .dark {
+    --background: 222 47% 11%;
+    --foreground: 210 40% 98%;
+    --card: 222 47% 14%;
+    --card-foreground: 210 40% 98%;
+    --primary: 238 84% 67%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 33% 20%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 33% 18%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 217 33% 22%;
+    --accent-foreground: 210 40% 98%;
+    --border: 217 33% 22%;
+    --ring: 238 84% 67%;
+  }
+
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.05);
+}
+.dark ::-webkit-scrollbar-track {
+  background: rgba(15, 23, 42, 0.6);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.6);
+  border-radius: 9999px;
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.6);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 116, 139, 0.8);
+}
+
+/* Glassmorphic utilities for Light and Dark modes */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+.dark .glass-panel {
+  background: rgba(15, 23, 42, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-subtle {
+  background: rgba(241, 245, 249, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(226, 232, 240, 0.6);
+}
+.dark .glass-panel-subtle {
+  background: rgba(30, 41, 59, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-dropdown {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(203, 213, 225, 0.8);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+.dark .glass-dropdown {
+  background: rgba(11, 15, 25, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Canvas background grid patterns (Light & Dark) */
+.canvas-grid-dots {
+  background-image: radial-gradient(rgba(100, 116, 139, 0.25) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+.dark .canvas-grid-dots {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.12) 1.2px, transparent 1.2px);
+}
+
+.canvas-grid-lines {
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.15) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.dark .canvas-grid-lines {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+}
+
+.canvas-grid-cross {
+  background-image: 
+    radial-gradient(circle, rgba(99, 102, 241, 0.35) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(148, 163, 184, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.08) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px, 32px 32px;
+}
+.dark .canvas-grid-cross {
+  background-image: 
+    radial-gradient(circle, rgba(99, 102, 241, 0.25) 1.5px, transparent 1.5px),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+}
+
+/* Glowing edge animation */
+@keyframes flowParticles {
+  from {
+    stroke-dashoffset: 48;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-edge-flow {
+  stroke-dasharray: 6 10;
+  animation: flowParticles 1s linear infinite;
+}
+
+.animate-edge-pulse {
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+/* Node card glow on hover/active.
+   NOTE: never transition `transform` — position is set via inline translate3d,
+   and animating it makes dragging lag behind the pointer. */
+.node-card {
+  transition: box-shadow 0.18s ease, border-color 0.18s ease, outline-color 0.18s ease;
+}
+
+/* Accent-tinted surface. --node-accent is set inline per node. */
+.node-surface {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--node-accent, #6366f1) 10%, white),
+    white 45%
+  );
+}
+.dark .node-surface {
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--node-accent, #6366f1) 22%, #0f172a),
+    rgba(15, 23, 42, 0.92) 45%,
+    rgba(2, 6, 23, 0.96)
+  );
+}
+
+.node-selected {
+  outline: 2px solid #6366f1;
+  outline-offset: 2px;
+  box-shadow: 0 0 25px -4px rgba(99, 102, 241, 0.4), 0 12px 28px -8px rgba(0, 0, 0, 0.15);
+}
+.dark .node-selected {
+  box-shadow: 0 0 25px -4px rgba(99, 102, 241, 0.5), 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+}
